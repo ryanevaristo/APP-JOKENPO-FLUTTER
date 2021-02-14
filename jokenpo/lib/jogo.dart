@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Jogo extends StatefulWidget {
@@ -6,6 +8,14 @@ class Jogo extends StatefulWidget {
 }
 
 class _JogoState extends State<Jogo> {
+  var _imagemApp = AssetImage("lib/imagens/padrao.png");
+
+  void opcaoSelecionada(String escolhaUsuario) {
+    List lista = ["Pedra", "Papel", "Papel"];
+    var random = Random().nextInt(lista.length);
+    var selecao = lista[random];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +25,6 @@ class _JogoState extends State<Jogo> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          //1) text
-          //2) imagem
-          //3) text resultado
-          //4) Linha 3 imagens
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16),
             child: Text(
@@ -27,7 +33,7 @@ class _JogoState extends State<Jogo> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
-          Image.asset("lib/imagens/padrao.png"),
+          Image(image: this._imagemApp),
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16),
             child: Text(
@@ -39,18 +45,27 @@ class _JogoState extends State<Jogo> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Image.asset(
-                "lib/imagens/pedra.png",
-                height: 100,
+              GestureDetector(
+                onTap: () => opcaoSelecionada("Pedra"),
+                child: Image.asset(
+                  "lib/imagens/pedra.png",
+                  height: 100,
+                ),
               ),
-              Image.asset(
-                "lib/imagens/papel.png",
-                height: 100,
+              GestureDetector(
+                onTap: () => opcaoSelecionada("Papel"),
+                child: Image.asset(
+                  "lib/imagens/papel.png",
+                  height: 100,
+                ),
               ),
-              Image.asset(
-                "lib/imagens/tesoura.png",
-                height: 100,
-              )
+              GestureDetector(
+                onTap: () => opcaoSelecionada("Tesoura"),
+                child: Image.asset(
+                  "lib/imagens/tesoura.png",
+                  height: 100,
+                ),
+              ),
             ],
           )
         ],
