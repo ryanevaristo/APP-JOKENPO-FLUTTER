@@ -12,8 +12,25 @@ class _JogoState extends State<Jogo> {
 
   void opcaoSelecionada(String escolhaUsuario) {
     List lista = ["Pedra", "Papel", "Papel"];
-    var random = Random().nextInt(lista.length);
-    var selecao = lista[random];
+    var random = Random().nextInt(3);
+    var escolhaApp = lista[random];
+    switch (escolhaApp) {
+      case "Pedra":
+        setState(() {
+          this._imagemApp = AssetImage("lib/imagens/pedra.png");
+        });
+        break;
+      case "Papel":
+        setState(() {
+          this._imagemApp = AssetImage("lib/imagens/papel.png");
+        });
+        break;
+      case "Tesoura":
+        setState(() {
+          this._imagemApp = AssetImage("lib/imagens/tesoura.png");
+        });
+        break;
+    }
   }
 
   @override
