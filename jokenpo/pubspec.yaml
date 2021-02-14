@@ -52,7 +52,7 @@ flutter:
      - lib/imagens/padrao.png
      - lib/imagens/papel.png
      - lib/imagens/pedra.png
-     lib/imagens/tesoura.png
+     - lib/imagens/tesoura.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
